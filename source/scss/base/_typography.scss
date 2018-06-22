@@ -1,0 +1,26 @@
+// Set base typo here
+// html is set to 62.5% so that all
+// the REM measurements are based on 10px sizing.
+// So basically 1.5rem = 15px :)
+
+html {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 62.5%;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: sans-serif;
+    color: $font-color;
+    font-size: 1.8rem;
+    line-height: 1.9;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+a { color: $link-color; text-decoration: none;
+    &:hover { text-decoration: underline; }
+}

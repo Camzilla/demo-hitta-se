@@ -1,0 +1,7 @@
+%boxshadow { box-shadow: 0 3px 3px -2px rgba(0,0,0,.2), 0 3px 4px 0 rgba(0,0,0,.14), 0 1px 8px 0 rgba(0,0,0,.12); }
+%flex { display: flex; flex-wrap: wrap; list-style: none; margin: 0; padding: 0; }
+%list-reset { margin: 0; padding: 0; list-style: none; }
+%button-reset { user-select: none; cursor: pointer; padding: 0; margin: 0; border: none; background: transparent; outline: none; }
+%input-reset { border: none; font-size: 1.7rem; line-height: 1.17647; padding: 10px 0; width: 100%; max-width: 100%; outline: none;
+    &::placeholder { color: $font-minor; }
+}

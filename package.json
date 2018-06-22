@@ -1,0 +1,30 @@
+{
+  "name": "winston-npm-build-boilerplate",
+  "version": "1.0.0",
+  "description": "A set of common build tasks written with npm scripts.",
+  "scripts": {
+    "scss": "node-sass --output-style compact --source-map true -o dist/gui/css source/scss",
+    "cssnano": "postcss \"dist/gui/css/main.css\" -u cssnano -o \"dist/gui/css/main.min.css\"",
+    "autoprefixer": "postcss -u autoprefixer -r dist/gui/css/main.css",
+    "serve": "browser-sync start --no-notify --directory --server --files \"dist/gui\", \"dist/HTML\" !\"source/**\" --startPath \"dist/HTML/index.html\"",
+    "build:css": "npm run scss",
+    "build:partials": "juice-pack \"source/templates\" \"dist/HTML\"",
+    "build:release": "npm run scss && npm run autoprefixer && npm run cssnano",
+    "build:all": "npm run build:css && npm run build:partials",
+    "watch:css": "onchange \"source/scss/**/*.scss\" -- npm run scss",
+    "watch:partials": "onchange \"source/templates\" \"source/partials\" -- npm run build:partials",
+    "watch:all": "npm-run-all -p serve watch:css watch:partials",
+    "start": "npm run build:all && npm run watch:all --silent"
+  },
+  "author": "Winston",
+  "devDependencies": {
+    "autoprefixer": "*",
+    "browser-sync": "*",
+    "cssnano-cli": "*",
+    "juice-pack": "https://github.com/emorlin/juice-pack/tarball/master",
+    "node-sass": "*",
+    "npm-run-all": "*",
+    "onchange": "*",
+    "postcss-cli": "*"
+  }
+}

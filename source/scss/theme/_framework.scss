@@ -1,0 +1,39 @@
+html, body { height: 100vh; min-height: 100%; }
+body { min-width: 700px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+
+* { box-sizing: border-box; }
+
+.demo { @extend %flex;
+    justify-content: center; align-items: center; padding-left: 324px;
+
+    &-container { @extend %boxshadow;
+        width: 375px; height: 812px; max-width: 100%; position: relative;
+    }
+    &-info { padding: 30px;
+        h1 { font-size: 2rem; }
+        h2 { font-size: 1.3rem; }
+        ul { padding-left: 20px; }
+        li { font-size: 1.5rem; }
+        a { position: absolute; bottom: 50px; left: 0; right: 0; margin: auto; text-align: center; font-size: 2.7rem; }
+    }
+}
+
+.index {
+    &-shortcut { @extend %flex;
+        position: absolute; left: 0; width: 324px; top: 0; bottom: 0; overflow: auto; justify-content: center; align-items: center; padding: 30px 0;
+
+        &::-webkit-scrollbar-track { border-radius: 8px; background-color: $border-color; }
+        &::-webkit-scrollbar { width: 8px; background-color: $border-color; }
+        &::-webkit-scrollbar-thumb { background-color: $font-color; border-radius: 8px; }
+    }
+    &-item { height: 325px; width: 150px; position: relative; padding: 45px 30px 30px; box-sizing: content-box;
+
+        &-link { color: $font-color; position: absolute; z-index: 10; top: 0; right: 0; bottom: 0; left: 0; text-align: center; }
+
+        &-wrapper { @extend %boxshadow;
+            background: $white; transform: scale(.4); transform-origin: 0 0; width: 375px; height: 812px; position: relative; z-index: 5;
+        }
+
+        &.current { background: $border-color; }
+    }
+}
